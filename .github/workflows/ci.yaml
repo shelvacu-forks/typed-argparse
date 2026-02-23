@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
 
@@ -59,12 +59,12 @@ jobs:
           ./scripts/test
 
       - name: Check example outputs
-        if: matrix.python-version == '3.8'
+        if: matrix.python-version == '3.10'
         run: |
           ./scripts/generate_console_outputs
 
       - name: Upload to codecov.io
-        if: matrix.python-version == '3.8'
+        if: matrix.python-version == '3.10'
         # https://github.com/codecov/codecov-action
         uses: codecov/codecov-action@v3
         with:
@@ -87,7 +87,7 @@ jobs:
       - name: Set up python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: "3.10"
 
       - name: Install wheel
         run: pip install wheel
@@ -130,7 +130,7 @@ jobs:
       - name: Set up python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: "3.10"
 
       - name: Install mkdocs-material
         run: pip install mkdocs-material
